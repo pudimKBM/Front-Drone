@@ -10,6 +10,7 @@ import {
   TableHead,
   TableRow,
   Button,
+  Box
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
@@ -57,6 +58,7 @@ function Results() {
         <Typography variant="h4" gutterBottom>
           Resultados da Competição
         </Typography>
+        <Box sx={{ maxHeight: '900px', overflowY: 'auto' }}>
         <Table
          sx={{
           maxHeight: '750px',  // Set the maximum height you want
@@ -80,6 +82,7 @@ function Results() {
             ))}
           </TableBody>
         </Table>
+        </Box>
         <Button
           variant="contained"
           color="secondary"
