@@ -7,6 +7,7 @@ import ReactConfetti from 'react-confetti';
 import dingSound from '../assets/sounds/ding.mp3'; // Import your sound file
 import trophyImage from '../assets/images/trophy.png'; // Import trophy image
 import '../styles.css';
+import FiapLogo from '../assets/images/logo-fiap.png'
 
 function Podium() {
   const [topGroups, setTopGroups] = useState([]);
@@ -21,7 +22,7 @@ function Podium() {
     sound.play();
 
     // Get window dimensions
-    setDimensions({ width: window.innerWidth*2, height: window.innerHeight });
+    setDimensions({ width: window.innerWidth * 2, height: window.innerHeight });
 
     const socket = io('http://localhost:5000');
 
@@ -49,6 +50,17 @@ function Podium() {
       maxWidth="false"
       sx={{ textAlign: 'center', mt: 5, position: 'relative' }}
     >
+      <img
+        src={FiapLogo}
+        alt="Logo"
+        style={{
+          position: 'fixed',
+          top: 10,
+          right: 10,
+          width: '250px', // Adjust size as needed
+          height: 'auto',
+        }}
+      />
       {/* Confetti */}
       <ReactConfetti
         width={dimensions.width}
@@ -64,10 +76,15 @@ function Podium() {
         {/* First Place Podium */}
         {topGroups.length >= 1 && (
           <div
-            className=" expandable podium-step first"
+            className=" podium-step first"
             style={{ '--final-height': '250px' }}
           >
-            <img src={trophyImage} alt="Trophy" className="trophy" />
+            <img
+              src={trophyImage}
+              alt="Trophy"
+              className="trophy"
+              style={{ width: '150px', height: 'auto' }} // Adjust size as needed
+            />
             <Typography variant="h5">1º Lugar</Typography>
             <Typography variant="h6">{topGroups[0].name}</Typography>
             <Typography variant="body1">
@@ -78,7 +95,7 @@ function Podium() {
         {/* Second Place Podium */}
         {topGroups.length >= 2 && (
           <div
-            className=" expandable podium-step second"
+            className=" podium-step second"
             style={{ '--final-height': '200px' }}
           >
             <Typography variant="h5">2º Lugar</Typography>
@@ -91,7 +108,7 @@ function Podium() {
         {/* Third Place Podium */}
         {topGroups.length >= 3 && (
           <div
-            className="expandable podium-step third"
+            className=" podium-step third"
             style={{ '--final-height': '160px' }}
           >
             <Typography variant="h5">3º Lugar</Typography>
@@ -104,7 +121,7 @@ function Podium() {
       </div>
       <Button
         variant="contained"
-        color="primary"
+        color="secondary"
         onClick={handleResults}
         sx={{ mt: 4 }}
       >

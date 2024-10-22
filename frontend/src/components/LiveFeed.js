@@ -123,7 +123,7 @@ function LiveFeed() {
           <br />
           <Button
             variant="contained"
-            color="primary"
+            color="secondary"
             onClick={startStream}
             disabled={!groupName.trim()}
           >

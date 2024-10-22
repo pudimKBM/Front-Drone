@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import io from 'socket.io-client';
+import FiapLogo from '../assets/images/logo-fiap.png'
 import {
   Container,
   Typography,
@@ -38,45 +39,60 @@ function Results() {
   };
 
   return (
-    <Container maxWidth="md" sx={{ textAlign: 'center', mt: 5 }}>
-      <Typography variant="h4" gutterBottom>
-        Resultados da Competição
-      </Typography>
-      <Table>
-        <TableHead>
-          <TableRow>
-            <TableCell>Posição</TableCell>
-            <TableCell>Grupo</TableCell>
-            <TableCell>Acurácia Máxima</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {results.map((result, idx) => (
-            <TableRow key={result.name}>
-              <TableCell>{idx + 1}</TableCell>
-              <TableCell>{result.name}</TableCell>
-              <TableCell>{result.max_accuracy.toFixed(2)}%</TableCell>
+    <>
+      {/* Logo in the top-right corner */}
+      <img
+        src={FiapLogo}
+        alt="Logo"
+        style={{
+          position: 'fixed',
+          top: 10,
+          right: 10,
+          width: '250px', // Adjust size as needed
+          height: 'auto',
+        }}
+      />
+      
+      <Container maxWidth="md" sx={{ textAlign: 'center', mt: 5 }}>
+        <Typography variant="h4" gutterBottom>
+          Resultados da Competição
+        </Typography>
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell>Posição</TableCell>
+              <TableCell>Grupo</TableCell>
+              <TableCell>Acurácia Máxima</TableCell>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-      <Button
-        variant="contained"
-        color="primary"
-        onClick={handleBack}
-        sx={{ mt: 2, mr: 2 }}
-      >
-        Voltar
-      </Button>
-      <Button
-        variant="contained"
-        color="secondary"
-        onClick={handlePodium}
-        sx={{ mt: 2 }}
-      >
-        Ver Pódio
-      </Button>
-    </Container>
+          </TableHead>
+          <TableBody>
+            {results.map((result, idx) => (
+              <TableRow key={result.name}>
+                <TableCell>{idx + 1}</TableCell>
+                <TableCell>{result.name}</TableCell>
+                <TableCell>{result.max_accuracy.toFixed(2)}%</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+        <Button
+          variant="contained"
+          color="secondary"
+          onClick={handleBack}
+          sx={{ mt: 2, mr: 2 }}
+        >
+          Voltar
+        </Button>
+        <Button
+          variant="contained"
+          color="secondary"
+          onClick={handlePodium}
+          sx={{ mt: 2 }}
+        >
+          Ver Pódio
+        </Button>
+      </Container>
+    </>
   );
 }
 
