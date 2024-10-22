@@ -40,7 +40,6 @@ Welcome to the **FrontDrone** project! This repository contains both the **front
 - **Mock Mode:** Backend can run in mock mode for testing without a real camera feed.
 
 ---
-
 ## Technologies Used
 
 ### Frontend
@@ -87,6 +86,13 @@ frontDrone/
 ---
 
 ## Installation
+Before setting up the project, ensure you have the following installed on your system:
+
+- **Python:** Version **3.8.x** (compatible up to 3.11.x)
+  - **Download:** [Python Downloads](https://www.python.org/downloads/)
+  
+- **Node.js:** Version **16.x** or higher
+  - **Download:** [Node.js Downloads](https://nodejs.org/en/download/)
 
 ### Frontend Setup
 
