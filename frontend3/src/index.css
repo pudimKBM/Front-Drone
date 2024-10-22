@@ -1,0 +1,53 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.podium {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.podium-step {
+  width: 150px;
+  text-align: center;
+  margin: 0 10px;
+}
+
+.podium-step.first {
+  background-color: gold;
+  height: 200px;
+}
+
+.podium-step.second {
+  background-color: silver;
+  height: 160px;
+}
+
+.podium-step.third {
+  background-color: #cd7f32; /* Bronze color */
+  height: 120px;
+}
+
+.podium-step {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 10px;
+  color: #fff;
+  border-radius: 5px;
+}
+.expandable {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease; /* Animation duration and easing */
+}

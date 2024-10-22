@@ -1,0 +1,37 @@
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #fafafa;
+}
+
+.podium {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-top: 50px;
+}
+
+.podium-step {
+  width: 150px;
+  text-align: center;
+  margin: 0 10px;
+  color: #fff;
+  border-radius: 5px 5px 0 0;
+}
+
+.first {
+  background-color: gold;
+  height: 200px;
+}
+
+.second {
+  background-color: silver;
+  height: 150px;
+}
+
+.third {
+  background-color: #cd7f32; /* Bronze color */
+  height: 100px;
+}
+
+/* Additional styles for buttons, inputs, etc., can be adjusted as needed */
