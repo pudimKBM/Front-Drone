@@ -46,9 +46,13 @@ function LiveFeed() {
         setAccuracy(currentAccuracy);
 
         // Update group's max accuracy
-        if (currentAccuracy > groupAccuracy) {
-          setGroupAccuracy(currentAccuracy);
-        }
+        setGroupAccuracy((prevMaxAccuracy) => {
+          if (currentAccuracy > prevMaxAccuracy) {
+            console.log("Updating max accuracy");
+            return currentAccuracy;
+          }
+          return prevMaxAccuracy; // If current accuracy is not higher, return the previous max accuracy
+        });
       });
 
       socketRef.current.on('play_sound', () => {
@@ -139,7 +143,10 @@ function LiveFeed() {
         <Grid container spacing={2}>
           {/* Left Side - Live Feed */}
           <Grid item xs={12} md={8}>
-            <Paper sx={{ p: 2 }}>
+            <Paper sx={{ p: 2, 
+                height: '750px',  // Set the maximum height you want
+                overflowY: 'auto',   // Enable vertical scrolling if content exceeds maxHeight
+            }}>
               <Typography variant="h5" gutterBottom>
                 Detecção Ao Vivo
               </Typography>
@@ -175,7 +182,12 @@ function LiveFeed() {
               <Typography variant="h5" gutterBottom>
                 Ranking em Tempo Real
               </Typography>
-              <List>
+              <List
+               sx={{
+                maxHeight: '615px',  // Set the maximum height you want
+                overflowY: 'auto',   // Enable vertical scrolling if content exceeds maxHeight
+              }}
+              >
                 {rankings.map((group, index) => (
                   <ListItem
                     key={group.name}

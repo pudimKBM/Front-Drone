@@ -57,7 +57,12 @@ function Results() {
         <Typography variant="h4" gutterBottom>
           Resultados da Competição
         </Typography>
-        <Table>
+        <Table
+         sx={{
+          maxHeight: '750px',  // Set the maximum height you want
+          overflowY: 'auto',   // Enable vertical scrolling if content exceeds maxHeight
+        }}
+        >
           <TableHead>
             <TableRow>
               <TableCell>Posição</TableCell>
