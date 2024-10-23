@@ -55,10 +55,10 @@ function LiveFeed() {
         });
       });
 
-      socketRef.current.on('play_sound', () => {
-        const sound = new Howl({ src: [titacSound] });
-        sound.play();
-      });
+      // socketRef.current.on('play_sound', () => {
+      //   const sound = new Howl({ src: [titacSound] });
+      //   sound.play();
+      // });
 
       socketRef.current.on('update_rankings', (data) => {
         setRankings(data.rankings);
